@@ -1,0 +1,25 @@
+@local = http://127.0.0.1:10000
+@phone-auth = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiNVwiLFwidXNlcm5hbWVcIjpcInBob25lXCJ9IiwiZXhwIjoxNTg2Njg2OTU5fQ.FMY1c2NdjJJjXal5KWhVOhGbuWIGvI1qDegLRG-Jqm4
+@book-auth = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiNFwiLFwidXNlcm5hbWVcIjpcImJvb2tcIn0iLCJleHAiOjE1ODY2ODcwNTV9.5Gf_VvRSU9Q8M2_v8gBzo-sgVcuIhIOJ7OvJqXhZzvU
+@admin-auth = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiM1wiLFwidXNlcm5hbWVcIjpcImFkbWluXCJ9IiwiZXhwIjoxNTg2Njg4MzE5fQ.NirpQ97a3iJaHvb7HVNRRNYwy9Z5bii5pGTsDeeUK_U
+###
+POST {{local}}/users/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"phone",
+    "password":"pw123456"
+}
+
+###
+POST {{local}}/users/signin HTTP/1.1
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"pw123456"
+}
+
+###
+GET {{local}}/books HTTP/1.1
+auth: {{admin-auth}}
