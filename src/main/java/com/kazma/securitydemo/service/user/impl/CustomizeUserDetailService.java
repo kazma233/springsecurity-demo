@@ -15,6 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 进行认证的时候需要一个 UserDetailsService 来获取用户的信息 UserDetails
+ * 如果需要改变认证的用户信息来源，我们可以实现 UserDetailsService
+ */
 @Service
 public class CustomizeUserDetailService implements UserDetailsService {
 
